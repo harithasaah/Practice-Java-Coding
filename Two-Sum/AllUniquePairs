@@ -1,0 +1,50 @@
+/******************************************************************************
+
+Given :: Array of Integers, target
+return all the unique pairs that add up to specific target
+
+*******************************************************************************/
+import java.util.*;
+
+public class Main
+{
+    public static List<List<Integer>> AllUniquePairs(int[] arr,int target){
+        //Set - To store numbers
+        Set<Integer> set1 = new HashSet<>();
+        //Set - To store string (min:max) either (Number:target-Number) or (target-Number:Number)
+        Set<String> set2 = new HashSet<>();
+        //Result Set 
+        List<List<Integer>> result = new ArrayList<>();
+        
+        for(int i=0; i<arr.length; i++){
+            int diff = target-arr[i];
+            if(set1.contains(diff)){
+                
+                //to get rid of duplicate, find the min & max and concatenate 
+                int min1 = Math.min(arr[i],diff);
+                int max1 = Math.max(arr[i],diff);
+                String res = min1+":"+max1;
+                
+                //check if it is in set2
+                if(!set2.contains(res)){
+                    result.add(Arrays.asList(min1,max1));
+                    set2.add(res);
+                }
+                
+            }
+            //store the current number 
+            set1.add(arr[i]);
+        }
+        //return the Result Set
+        return result;
+        
+    }
+	public static void main(String[] args) {
+	    int[] arr={2,7,8,1,2};
+	    int target = 9;
+	    List<List<Integer>> results = AllUniquePairs(arr,target);
+	    for(List<Integer> result : results ){
+	        System.out.println(result);
+	    }
+	}
+}
