@@ -1,0 +1,42 @@
+/******************************************************************************
+
+Given :: Array of Integers, return all the indices of numbers that add up to specific target
+
+*******************************************************************************/
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+
+public class Main
+{
+    public static List<int[]> twoSumAllPairs(int[] arr,int target){
+        //To store number,index 
+        Map<Integer,Integer> map = new HashMap<>();
+        //Result Set 
+        List<int[]> result = new ArrayList<>();
+        
+        for(int i=0; i<arr.length; i++){
+            int diff = target-arr[i];
+            if(map.containsKey(diff)){
+                //map.get(diff) -> gives the index of the diff & i->current index
+                //add to the Result set 
+                result.add(new int[] {map.get(diff),i});
+                
+            }
+            //store the current number & index 
+            map.put(arr[i],i);
+        }
+        //return the Result Set
+        return result;
+        
+    }
+	public static void main(String[] args) {
+	    int[] arr={2,7,8,1,2};
+	    int target = 9;
+	    List<int[]> results = twoSumAllPairs(arr,target); 
+	    for(int[] result : results ){
+	        System.out.println(result[0]+" "+result[1]);
+	    }
+	}
+}
