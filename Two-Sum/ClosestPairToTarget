@@ -1,0 +1,49 @@
+/**********************************************************************
+
+Given :: Array of integers, target
+return :: one pair of numbers close to the specified target
+
+Sort the array - Two-Pointer Technique 
+
+**********************************************************************/
+
+import java.util.*;
+
+public class Main{
+    
+    public static int[] closestPair(int[] arr,int target){
+        
+        //Sort the arrays 
+        Arrays.sort(arr);
+        
+        //Two-Pointer Technique; diff = Integer.MAX_VALUE
+        int left = 0;
+        int right = arr.length - 1;
+        int diff = Integer.MAX_VALUE;
+        int[] result = new int[2];
+        
+        while(left<right){
+            int sum = arr[left]+arr[right];
+            int difference = Math.abs(sum-target);
+            if(difference<diff){
+                diff = difference;
+                result[0]=arr[left];
+                result[1]=arr[right];
+            }
+            else if (sum<target){
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+        return result;
+    }
+    
+    public static void main(String args[]){
+        int[] arr={10,1,7,8,11};
+        int target = 13;
+        int[] result = closestPair(arr,target);
+        System.out.println(result[0]+" "+result[1]);
+    }
+}
