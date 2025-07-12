@@ -1,0 +1,55 @@
+/**********************************************************************
+
+Given :: Array of sorted interger, target
+return :: one pair of numbers
+
+Two-Pointer Technique - O(n) time complexity - no HashMap (no extra space)
+
+**********************************************************************/
+
+import java.util.*;
+
+public class Main
+{
+    public static int[] twoSumSorted(int[] arr,int target){
+        
+        /*******************************
+          left = 0; right = arr.length -1 
+          while(left<right)
+          Compute sum = nums[left] + nums[right]
+         If sum == target → return the pair
+         If sum < target → move left++ (you need a larger number)
+         If sum > target → move right-- (you need a smaller number)
+        *******************************/
+        int left = 0;
+        int right = arr.length -1;
+        while(left<right){
+            int sum = arr[left] + arr[right];
+            if(sum == target){
+                return new int[]{arr[left],arr[right]};
+            }
+            else if(sum<target){
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+        //No pair found 
+        return new int[] {};
+        
+    }
+	public static void main(String[] args) {
+	    int[] arr={1,2,4,7,11,15};
+	    int target = 15;
+	    int[] result = twoSumSorted(arr,target);
+	    if(result.length == 0)
+	    {
+	        System.out.println("No pair found");
+	    }
+	    else{
+	        System.out.println(result[0]+" "+result[1]);
+	    }
+	    
+	}
+}
