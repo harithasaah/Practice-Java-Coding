@@ -4,7 +4,8 @@
 2. TwoSumAllPairs
 3. AllUniquePairs
 4. CountAllPairs 
-5. CountUniquePairs - AllUniquePairs + add count++
+5. CountUniquePairs - AllUniquePairs + add count++ (Not added in Github)
 6. TwoSum_TwoPointerTechnique
+7. ClosestPairToTarget - Using Two-Pointer Technique
 
 *************************************************************************/
