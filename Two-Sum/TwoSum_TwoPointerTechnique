@@ -1,6 +1,6 @@
 /**********************************************************************
 
-Given :: Array of sorted interger, target
+Given :: Array of sorted integer, target
 return :: one pair of numbers
 
 Two-Pointer Technique - O(n) time complexity - no HashMap (no extra space)
