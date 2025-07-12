@@ -1,5 +1,5 @@
 /**************************************
-Given :: Array of interger, target
+Given :: Array of integer, target
 return :: count of all pairs
 ****************************************/
 
