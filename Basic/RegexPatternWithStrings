@@ -1,0 +1,93 @@
+/******************************************************************************
+
+To check whether String Contains Vowels
+To check whether String Contains Only Vowels
+To check whether String Contains Digits 
+To check whether String Contains Only Digits 
+To check whether String Contains Valid Email
+To check the first and the last character match 
+
+*******************************************************************************/
+import java.util.*;
+
+public class Main
+{
+    /*** 
+         . means any single character 
+         * means 0/more characters
+         + means 1/more characters
+         .* any number of characters 
+         [aeiou] - character class , any one vowel
+         [aeiou]+ - all should be vowels 
+         [^aeiou] - except vowel 
+         [a-zA-Z0-9] - alphanumeric character
+         [a-z]+ - 1/more lowercase letters
+         \\d+ - 1/more digits
+         \\w+ - word character(letters,diigits)
+         .*[aeiou].* - any number of characters, [aeiou], followed by any number of characters
+    ***/
+    
+    public static boolean StringContainsVowels(String str){
+        return str.toLowerCase().matches(".*[aeiou].*");
+        //return str.toLowerCase().matches(".*[aeiou]+.*");
+    }
+    
+    public static boolean StringContainsOnlyVowels(String str){
+        return str.toLowerCase().matches("[aeiou]+");
+    }
+    
+    public static boolean StringContainsDigits(String str){
+        return str.matches(".*\\d.*");
+        //return str.matches(".*\\d+.*");
+    }
+    
+    public static boolean StringContainsOnlyDigits(String str){
+        return str.matches("\\d+");
+    }
+    
+    public static boolean ValidEmailorNot(String str){
+        /*********
+          ^ - start of the string 
+          [\\w.-]+ - \\w - [a-zA-Z0-9_]
+                     . - dot 
+                    - - hypen 
+          @
+          [\\w.-]+
+          \\. - dot 
+          \\w 
+          $ - end of the string 
+        *********/
+        return str.matches("^[\\w.-]+@[\\w.-]+\\.\\w+$");
+    }
+    
+    public static boolean FirstLastMatchesOrNot(String str){
+        /********************
+          eg :: radar
+                ^ - start of the string 
+                (.) - r 
+                .* - ada 
+                \\1 - r 
+                $ - end of the string
+                
+        ********************/
+        return str.matches("^(.).*\\1$");
+    }
+    
+    public static void main(String args[]){
+       Scanner sc = new Scanner(System.in);
+       String str = sc.nextLine();
+       //To check whether String Contains Vowels 
+       System.out.println(StringContainsVowels(str));
+       //To check whether String Contains Only Vowels
+       System.out.println(StringContainsOnlyVowels(str));
+       //To check whether String Contains Digits 
+       System.out.println(StringContainsDigits(str));
+       //To check whether String Contains Only Digits 
+       System.out.println(StringContainsOnlyDigits(str));
+       //To check whether String Contains Valid Email
+       System.out.println(ValidEmailorNot(str));
+       //To check the first and the last character match 
+       System.out.println(FirstLastMatchesOrNot(str));
+       
+    }
+}
