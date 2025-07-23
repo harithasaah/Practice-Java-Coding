@@ -78,6 +78,8 @@ public class Main
        System.out.println(ValidEmailorNot(str));
        //To check the first and the last character match 
        System.out.println(FirstLastMatchesOrNot(str));
+
+       sc.close();
        
     }
 }
