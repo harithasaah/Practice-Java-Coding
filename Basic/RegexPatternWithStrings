@@ -46,18 +46,8 @@ public class Main
     }
     
     public static boolean ValidEmailorNot(String str){
-        /*********
-          ^ - start of the string 
-          [\\w.-]+ - \\w - [a-zA-Z0-9_]
-                     . - dot 
-                    - - hypen 
-          @
-          [\\w.-]+
-          \\. - dot 
-          \\w 
-          $ - end of the string 
-        *********/
-        return str.matches("^[\\w.-]+@[\\w.-]+\\.\\w+$");
+        // {2,} - atleast two charcters (.com, .co, .in)
+        return str.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
     }
     
     public static boolean FirstLastMatchesOrNot(String str){
