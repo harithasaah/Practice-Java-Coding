@@ -1,0 +1,39 @@
+/******************************************************************************
+
+Reverse a Number
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static int ModuloReverse(int n){
+        int rev = 0;
+        while(n!=0){
+            int digit = n%10;
+            rev = rev*10 + digit;
+            n = n/10;
+        }
+        return rev;
+    }
+    
+    public static int ModuloReverseForNegativeNumber(int n){
+        boolean isNegative = n<0;
+        n = Math.abs(n);
+        int rev = 0;
+        while(n!=0){
+            int digit = n%10;
+            rev = rev*10 + digit;
+            n = n/10;
+        }
+        return isNegative? -rev:rev;
+    }
+    
+    public static void main(String args[]){
+        int n = 6790;
+        //Method 1 :: Both Numbers 
+        System.out.println(ModuloReverse(n));
+        //Method 2 :: Negative Numbers (Explicity)
+        System.out.println(ModuloReverseForNegativeNumber(n));
+    }
+    
+}
