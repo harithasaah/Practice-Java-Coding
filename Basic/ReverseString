@@ -31,15 +31,26 @@ public class Main
     public static String reverseStringBuilderWithReverse(String str){
         return new StringBuilder(str).reverse().toString();
     }
+
+    //Method 4
+    public static String reverseUsingStringConcatenation(String str){
+        String str2 = "";
+        for(int i=str.length()-1;i>=0;i--){
+            str2+=str.charAt(i);
+        }
+        return str2;
+    }
     
-	public static void main(String[] args){
+    public static void main(String[] args){
 	    String str = "Haritha";
 	    //Method 1 :: Traditional Loop (toCharArray()-store it in char[]-length,swap)
 	    System.out.println(reverse(str));
-	    //Method 1 :: StringBuilder, toCharArray()-store it in char[]-length 
+	    //Method 2 :: StringBuilder, toCharArray()-store it in char[]-length 
 	    System.out.println(reverseStringBuilder(str));
-	    //Method 2 :: StringBuilder, reverse()
+	    //Method 3 :: StringBuilder, reverse()
 	    System.out.println(reverseStringBuilderWithReverse(str));
+            //Method 4 :: Initalize new String, String Concatenation
+            System.out.println(reverseUsingStringConcatenation(str));
 	    
 	}
 }
