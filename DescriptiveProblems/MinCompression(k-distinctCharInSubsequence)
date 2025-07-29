@@ -1,0 +1,45 @@
+/************************************************************************************************************************************************************************
+
+In a URL shortening service, the URL is given as a string URL consisting of lowercase English letters. 
+
+The task is to extract a subsequence of exactly k characters from the URL that minimizes the URL compression 
+defined as the difference between length of the subsequence and the number of distinct characters in subsequence. 
+
+Implement a function to compute the minimum possible compression for any subsequence of length k. 
+The function minimizes URL compression takes the following input string URL in k. 
+The function should return the minimum possible compression in any subsequence of length k. 
+
+Note the subsequence of a string is a string obtained by deleting any set of characters from the original string while 
+retaining the order of the remaining characters. 
+
+URL = "OOXOXO"
+k = 4
+One optimal subsequence of length exactly k is OOXX. 
+The length of subsequence is 4 
+two distinct characters O and X (2)
+URL compression = 4 - 2 = 2.
+
+Solution :: URL compression = k - distinct characters in subsequence
+
+*************************************************************************************************************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static int minCompression(String url, int k){
+        
+        //To get distinct Characters
+        HashSet<Character> unique = new HashSet<>();
+        for(char c:url.toCharArray()){
+            unique.add(c);
+        }
+        //min value - To get mininum of k and size of the set 
+        // k - min value
+        return k - Math.min(unique.size(),k);
+    }
+    
+	public static void main(String[] args) {
+		String url = "OOXOXO";
+		int k = 4;
+		System.out.println(minCompression(url,k));
+	}
+}
