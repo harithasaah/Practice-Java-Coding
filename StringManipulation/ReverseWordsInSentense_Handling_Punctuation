@@ -1,0 +1,32 @@
+/******************************************************************************
+
+ReverseWordsInSentense_Handling_Punctuation
+
+Input: "Hello, World! Java."
+Output: "Java. World! Hello,"
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		String[] strarr = str.split(" ");
+		
+		/*****************************
+		 
+		 1. String[]
+		 2. In reverse order, get only the alphabetical words by replaceAll("[^a-zA-Z]","")
+		 3. j=0,j++,get only the punctuations by replaceAll("[a-zA-Z]","")
+		 4. strarr[j] = concatenate step2 & step3
+		 
+		******************************/
+		String[] strApha = new String[strarr.length];
+		for(int i=strarr.length-1,j=0;i>=0;i--,j++){
+		    strApha[j]=strarr[i].replaceAll("[^a-zA-Z]","")+strarr[j].replaceAll("[a-zA-Z]","");
+		    System.out.print(strApha[j]+" ");
+		}
+		
+	}
+}
