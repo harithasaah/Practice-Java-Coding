@@ -1,0 +1,33 @@
+/******************************************************************************
+
+Find the Most Frequent Character
+
+Input: "banana"
+Output: a
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    String str = sc.nextLine();
+	    
+	    Map<Character,Integer> map = new LinkedHashMap<>();
+	    for(char i:str.toCharArray()){
+	        map.put(i,map.getOrDefault(i,0)+1);
+	    }
+	    
+	    int maxVal = 0;
+	    char maxKey = ' ';
+	    
+	    for(Map.Entry<Character,Integer> entry: map.entrySet()){
+	        if(entry.getValue()>maxVal){
+	            maxVal = entry.getValue();
+	            maxKey = entry.getKey();
+	        }
+	    }
+	    
+	    System.out.println(maxKey);
+	}
+}
