@@ -14,7 +14,7 @@ public class Main
 	    Scanner sc = new Scanner(System.in);
 		  String str=sc.nextLine();
 		
-		  //Use LinkedHashMap
+            //Use LinkedHashMap
 	    Map<Character,Integer> map = new LinkedHashMap<>();
 	    for(char ch:str.toCharArray()){
 	        map.put(ch,map.getOrDefault(ch,0)+1);
@@ -24,7 +24,7 @@ public class Main
 	    List<Map.Entry<Character,Integer>> sortedList = new ArrayList<>(map.entrySet());
 	    sortedList.sort((a,b)->b.getValue()-a.getValue());
 	    
-	    //Use Entry, entrySet() 
+	    //Use Entry, sortedList
 	    for(Map.Entry<Character,Integer> entry:sortedList){
 	        System.out.println(entry.getKey()+": "+entry.getValue());
 	    }
