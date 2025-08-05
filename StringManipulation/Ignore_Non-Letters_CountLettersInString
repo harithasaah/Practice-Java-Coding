@@ -1,0 +1,32 @@
+/******************************************************************************
+
+Ignore Non-Letters
+
+Input: "Hello! 123"
+Output: Counts only letters: h, e, l, o
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    String str = sc.nextLine();
+	   
+	    Map<Character,Integer> map = new LinkedHashMap<>();
+	    for(char c: str.toLowerCase().toCharArray()){
+	        if(Character.isLetter(c)){
+	            map.put(c,map.getOrDefault(c,0)+1);
+	        }
+	    }
+	    
+	    //Using Iterator, iterator(), hasNext(), next()
+	    Iterator<Character> it = map.keySet().iterator();
+	    while(it.hasNext()){
+	        System.out.print(it.next());
+	        if(it.hasNext()){
+	            System.out.print(",");
+	        }
+	    }
+	}
+}
