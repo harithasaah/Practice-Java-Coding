@@ -1,0 +1,30 @@
+/******************************************************************************
+
+Sort Characters by Frequency (Ascending)
+
+Input: "banana"
+Output: b: 1
+        n: 2
+        a: 3
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    String str= sc.nextLine();
+	    
+	    Map<Character,Integer> map = new LinkedHashMap<>();
+	    for(char i:str.toCharArray()){
+	        map.put(i,map.getOrDefault(i,0)+1);
+	    }
+	    
+	    List<Map.Entry<Character,Integer>> sortedList = new ArrayList<>(map.entrySet());
+	    sortedList.sort((a,b)->a.getValue()-b.getValue());
+	    
+	    for(Map.Entry<Character,Integer> entry:sortedList){
+	        System.out.println(entry.getKey()+": "+entry.getValue());
+	    }
+	}
+}
