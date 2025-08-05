@@ -1,0 +1,34 @@
+/******************************************************************************
+
+Anagram_Check_WithBuiltIn
+
+Input → "listen" and "silent" 
+Output: true
+
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static boolean CheckAnagram(String str1, String str2){
+        if(str1.length()!=str2.length()){
+            return false;
+        }
+        //Convert to toCharArray() and sort and then equals
+        char[] c1 = str1.toCharArray();
+        char[] c2 = str2.toCharArray();
+        
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+        
+        return Arrays.equals(c1,c2);
+    } 
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    String str1 = sc.nextLine();
+	    String str2 = sc.nextLine();
+	    
+	    System.out.print(CheckAnagram(str1,str2));
+	    
+	}
+}
