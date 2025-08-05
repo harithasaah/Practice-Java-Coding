@@ -1,0 +1,37 @@
+/******************************************************************************
+
+Anagram_Check_WithoutBuiltIn
+
+Input → "listen" and "silent" 
+Output: true
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static boolean CheckAnagramWithoutBuiltIn(String str1, String str2){
+        if(str1.length()!=str2.length()){
+            return false;
+        }
+        
+        int[] freq = new int[26];
+        for(int i=0;i<str1.length();i++){
+            freq[str1.charAt(i)-'a']++; //count from 1st string
+            freq[str2.charAt(i)-'a']--; //substract count from 2nd string
+        }
+        
+        for(int count:freq){
+            if(count!=0) return false;
+        }
+        
+        return true;
+    } 
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    String str1 = sc.nextLine();
+	    String str2 = sc.nextLine();
+	    
+	    System.out.print(CheckAnagramWithoutBuiltIn(str1,str2));
+	    
+	}
+}
