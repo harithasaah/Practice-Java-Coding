@@ -1,0 +1,24 @@
+/******************************************************************************
+
+Use_Stack_to_reverse_the_word_in_Sentence (LIFO)
+
+*******************************************************************************/
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+		String str=sc.nextLine();
+		String[] strarr = str.split("\\s+");
+		
+		Stack<String> st = new Stack<>();
+		for(String s:strarr){
+		    st.push(s);
+		}
+		
+		for(int i=strarr.length-1;i>=0;i--){
+		    System.out.print(st.pop()+" ");
+		}
+	}
+}
