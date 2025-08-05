@@ -1,0 +1,25 @@
+/******************************************************************************
+
+Check Palindrome
+
+Input: madam 
+Output: true
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static boolean CheckPalindrome(String str){
+        if(str.equals(new StringBuilder(str).reverse().toString())){
+            return true;
+        }
+        return false;
+    } 
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    String str = sc.nextLine();
+	    
+	    System.out.print(CheckPalindrome(str));
+	    
+	}
+}
