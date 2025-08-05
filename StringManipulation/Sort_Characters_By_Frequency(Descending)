@@ -3,7 +3,9 @@
 Sort Characters by Frequency (Descending)
 
 Input: "banana"
-Output: a: 3, n: 2, b: 1
+Output: a: 3
+        n: 2
+        b: 1
 
 *******************************************************************************/
 import java.util.*;
