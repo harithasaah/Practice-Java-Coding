@@ -1,0 +1,25 @@
+/******************************************************************************
+
+Convert String to Integer 
+Input: "123"
+Output: 123
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		
+		try{
+		    int num = Integer.parseInt(str);
+		    //or 
+		    int num1 = Integer.valueOf(str);
+		    System.out.println(num+" "+num1);
+		}
+		catch(NumberFormatException e){
+		    System.out.println("Not a Valid Number Format ");
+		} 
+	}
+}
