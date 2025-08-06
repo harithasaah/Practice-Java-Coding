@@ -1,0 +1,39 @@
+/******************************************************************************
+
+Convert string to title case or Pascal case
+Title Case (First letter of each word capitalized, spaces retained)
+Pascal Case (First letter of each word capitalized, no spaces)
+
+Input: hello world
+Output : Title Case ->  "Hello World"
+         Pascal Case -> "HelloWorld"
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    
+    public static String toTitleCase(String str){
+        StringBuilder sb = new StringBuilder();
+        for(String s:str.split(" ")){
+            sb.append(s.substring(0,1).toUpperCase()).append(s.substring(1)).append(" ");
+        }
+        return sb.toString();
+    }
+    
+    public static String toPascalCase(String str){
+        StringBuilder sb = new StringBuilder();
+        for(String s:str.split(" ")){
+            sb.append(s.substring(0,1).toUpperCase()).append(s.substring(1));
+        }
+        return sb.toString();
+    }
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		
+		System.out.println(toTitleCase(str));
+		System.out.println(toPascalCase(str));
+	}
+}
