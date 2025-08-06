@@ -1,0 +1,31 @@
+/******************************************************************************
+
+Check for Substring
+
+Input→ Is "abc" present in "xyzabcde"?
+Output -> true
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		// use "\""
+		String[] strarr = str.split("\"");
+		
+		//Extract sub String and main String
+		String sub = strarr[1];
+		String main = strarr[3];
+		
+		//method 1 - contains()
+		boolean result1 = main.contains(sub);
+		//method 2 - indexOf()
+		boolean result2 = main.indexOf(sub)!=-1;
+		
+		System.out.println(result1+" "+result2);
+	
+	}
+}
