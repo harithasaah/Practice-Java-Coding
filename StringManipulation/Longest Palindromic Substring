@@ -1,0 +1,43 @@
+/******************************************************************************
+
+Longest Palindromic Substring
+
+Input: "babad" 
+Output: "bab" or "aba"
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static String longestPalindromeSubstring(String str){
+        String longstr = "";
+        for(int i=0;i<str.length();i++){
+            String oldLengthStr = expandAroundCenter(str,i,i); // old length
+            String evenLengthStr = expandAroundCenter(str,i,i+1); //even length 
+            
+            if(oldLengthStr.length()>longstr.length()){
+                longstr = oldLengthStr;
+            }
+            if(evenLengthStr.length()>longstr.length()){
+                longstr = evenLengthStr;
+            }
+        }
+        return longstr;
+    }
+    
+    //core logic 
+    public static String expandAroundCenter(String str,int left, int right){
+        while(left>=0 && right<str.length() && str.charAt(left)==str.charAt(right)){
+            left--;
+            right++;
+        }
+        return str.substring(left+1,right);
+    }
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		String result = longestPalindromeSubstring(str);
+		System.out.println(result);
+	}
+}
