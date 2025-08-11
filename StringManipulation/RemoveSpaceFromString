@@ -24,6 +24,7 @@ public class Main
     
     public static String WithBuildIn_RemoveSpace_Trim(String str){
         return str.trim(); //Java is Fun
+        //return str.strip(); //Java is Fun
     }
     
 	  public static void main(String[] args) {
