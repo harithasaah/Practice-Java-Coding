@@ -1,0 +1,33 @@
+/******************************************************************************
+
+Check if the List of Integers Contains Only Odd Numbers
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static boolean WithoutStream(List<Integer>list){
+        for(int i:list){
+            if(i%2==0){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static boolean WithStream(List<Integer> list){
+        //Check if all are odd
+        return list.parallelStream().allMatch(x->x%2!=0);
+    }
+   
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		List<Integer> list = new ArrayList<>();
+		for(int i=0;i<n;i++){
+		    list.add(sc.nextInt());
+		}
+		System.out.println(WithoutStream(list));
+		System.out.println(WithStream(list));
+	}
+}
