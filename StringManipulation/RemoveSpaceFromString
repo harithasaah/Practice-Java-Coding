@@ -1,0 +1,37 @@
+/******************************************************************************
+
+RemoveSpaceFromString
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    
+    public static String WithoutBuildIn_RemoveSpace(String str){
+        StringBuilder sb = new StringBuilder();
+        for(char i:str.toCharArray()){
+            if(!Character.isWhitespace(i)){
+                sb.append(i);
+            }
+        }
+        return sb.toString(); //JavaisFun
+    }
+    
+    public static String WithBuildIn_RemoveSpace(String str){
+        return str.replaceAll(" ",""); //JavaisFun
+    }
+    
+    
+    public static String WithBuildIn_RemoveSpace_Trim(String str){
+        return str.trim(); //Java is Fun
+    }
+    
+	  public static void main(String[] args) {
+		    Scanner sc = new Scanner(System.in);
+		    String str = sc.nextLine(); // Java is Fun
+		    System.out.println(WithoutBuildIn_RemoveSpace(str));
+		    System.out.println(WithBuildIn_RemoveSpace(str));
+		    //Remove Leading and Trailing Spaces 
+		    System.out.println(WithBuildIn_RemoveSpace_Trim(str));
+	   }
+}
