@@ -1,0 +1,23 @@
+/******************************************************************************
+
+Reverse a LinkedList - with descendingIterator
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		LinkedList<Integer> linkedlist1 = new LinkedList<>();
+		linkedlist1.add(10);
+		linkedlist1.add(20);
+		linkedlist1.add(30);
+		linkedlist1.add(40);
+		
+		//New Linked list 
+		LinkedList<Integer> linkedlist2 = new LinkedList<>();
+		//oldlinkedlistName.descendingIterator().forEachRemaining(newlinkedlistName::add)
+		linkedlist1.descendingIterator().forEachRemaining(linkedlist2::add);
+	    System.out.print(linkedlist2);
+		
+	}
+}
