@@ -1,0 +1,69 @@
+/******************************************************************************
+
+Merge Two Arrays And Remove Duplicates
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static void mergeAndRemoveDuplicates_WithoutBuildIn(int[] arr1,int[] arr2){
+        int[] arr3 = new int [arr1.length + arr2.length];
+        int index = 0;
+        for(int i=0;i<arr1.length;i++){
+            arr3[index++]=arr1[i];
+        }
+        for(int i=0;i<arr2.length;i++){
+            arr3[index++]=arr2[i];
+        }
+        //Remove Duplicates by using temp array (with merged array length)
+        int[] temp = new int[arr3.length];
+        int newSize = 0;
+        for(int i=0;i<arr3.length;i++){
+            boolean isDuplicate = false;
+            for(int j=0;j<newSize;j++){
+                if(arr3[i] == temp[j]){
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if(!isDuplicate){
+                temp[newSize++]=arr3[i];
+            }
+        }
+        for(int i=0;i<newSize;i++){
+            System.out.print(temp[i]+" ");
+        }
+        
+    }
+    
+    public static void mergeAndRemoveDuplicates_WithBuildIn(int[] arr1,int[] arr2){
+        Set<Integer> set = new LinkedHashSet<>();
+        for(int i:arr1){
+            set.add(i);
+        }
+        for(int i:arr2){
+            set.add(i);
+        }
+        int[] arr3 = new int[set.size()];
+        int i=0;
+        for(int num:set){
+            arr3[i++] = num;
+        }
+        System.out.println(Arrays.toString(arr3));
+    }
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr1 = new int[n];
+		int[] arr2 = new int[n];
+		for(int i=0;i<n;i++){
+		    arr1[i] = sc.nextInt();
+		}
+		for(int i=0;i<n;i++){
+		    arr2[i] = sc.nextInt();
+		}
+		mergeAndRemoveDuplicates_WithoutBuildIn(arr1,arr2);
+		mergeAndRemoveDuplicates_WithBuildIn(arr1,arr2);
+	}
+}
