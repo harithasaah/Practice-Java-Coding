@@ -1,0 +1,22 @@
+/******************************************************************************
+
+Convert String to Int
+Sol :: Integer.parseInt(str), Integer.valueof(str)
+
+*******************************************************************************/
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        try{
+            int num = Integer.parseInt(str);
+            //int num = Integer.valueof(str);
+            System.out.println(num);
+        }
+        catch(NumberFormatException e){
+            System.out.println(e);
+        }
+    }
+}
