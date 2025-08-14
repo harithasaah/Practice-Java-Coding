@@ -1,0 +1,22 @@
+/******************************************************************************
+
+Convert bytes to long
+Sol :: ByteBuffer - Based on ByteOrder (Big Endian)
+
+*******************************************************************************/
+import java.util.*;
+import java.nio.ByteBuffer;
+public class Main
+{
+    public static long ConvertByteToLong(byte[] arr){
+        ByteBuffer buffer = ByteBuffer.allocate(Long.BYTES);
+        buffer.put(arr);
+        buffer.flip(); //resets to position to 0
+        return buffer.getLong();
+    }
+    
+	public static void main(String[] args) {
+		byte[] arr = {0,0,0,0,0,0,1,5};
+		System.out.println(ConvertByteToLong(arr));
+	}
+}
