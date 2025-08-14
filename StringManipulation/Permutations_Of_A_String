@@ -1,0 +1,37 @@
+/******************************************************************************
+
+Permutations Of a String
+
+Input :: ABC 
+Output :: 
+
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+
+
+*******************************************************************************/
+
+import java.util.*;
+public class Main{
+    
+    public static void permutate(String str, String prefix){
+        if(str.length()==0){
+            System.out.println(prefix);
+        }
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            String remaining = str.substring(0,i)+str.substring(i+1);
+            permutate(remaining,prefix+ch);
+        }
+    }
+    
+    public static void main(String[] args){
+       Scanner sc = new Scanner(System.in);
+       String str = sc.nextLine();
+       permutate(str,"");
+    }
+}
