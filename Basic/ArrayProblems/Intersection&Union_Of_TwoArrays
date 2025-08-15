@@ -1,0 +1,73 @@
+/******************************************************************************
+
+Find Intersection and Union of Two Arrays 
+
+Input: {1,2,3,4}
+       {3,4,5,6}
+Output: Intersection - {3,4}
+        Union - {1,2,3,4,5,6}
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static void IntersectionAndUnion_WithoutBuildIn(int[] arr1,int[] arr2){
+        int[] arr3 = new int[arr1.length+arr2.length];
+        int index=0;
+        System.out.print("Intersection : ");
+        for(int i=0;i<arr1.length;i++){
+            arr3[index++] = arr1[i];
+        }
+        for(int i=0;i<arr2.length;i++){
+            boolean isDuplicate = false;
+            for(int j=0;j<arr1.length;j++){
+                if(arr2[i]==arr1[j]){
+                    isDuplicate = true;
+                }
+            }
+            if(!isDuplicate){
+                arr3[index++] = arr2[i];
+            }
+            else{
+                System.out.print(arr2[i]+" ");
+            }
+        }
+        System.out.println();
+        System.out.print("Union : ");
+        for(int i=0;i<index;i++){
+            System.out.print(arr3[i]+" ");
+        }
+    }
+    
+    public static void IntersectionAndUnion_WithBuildIn(int[] arr1,int[] arr2){
+        
+        Set<Integer> set1 = new LinkedHashSet<>(); 
+        Set<Integer> set2 = new LinkedHashSet<>();
+        for(int i:arr1){
+            set1.add(i);
+        }
+        for(int i:arr2){
+            if(!set1.add(i)){
+                set2.add(i);
+            }
+        }
+        System.out.println();
+        System.out.println("Intersection : "+set2);
+        System.out.println("Union : "+set1);
+    }
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr1 = new int[n];
+		int[] arr2 = new int[n];
+		for(int i=0;i<n;i++){
+		    arr1[i] = sc.nextInt();
+		}
+		for(int i=0;i<n;i++){
+		    arr2[i] = sc.nextInt();
+		}
+	    IntersectionAndUnion_WithoutBuildIn(arr1,arr2);
+	    IntersectionAndUnion_WithBuildIn(arr1,arr2);
+	}
+}
