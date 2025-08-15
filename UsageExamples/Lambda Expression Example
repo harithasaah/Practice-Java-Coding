@@ -1,0 +1,17 @@
+/******************************************************************************
+
+Lambda Expression Example
+
+*******************************************************************************/
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Runnable withLamdarunnable = () ->{
+		    System.out.println("Task 1");
+		    System.out.println("Task 2");
+		};
+		new Thread(withLamdarunnable).start();
+	}
+}
