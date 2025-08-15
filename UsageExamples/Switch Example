@@ -1,0 +1,26 @@
+/******************************************************************************
+
+Switch Example
+
+*******************************************************************************/
+import java.util.*;
+public class Main 
+{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String day = sc.nextLine();
+        String result = switch(day){
+            case "Mon","Tues" -> "Weekday1";
+            case "Wed","Thurs","Fri"->"Weekday2";
+            case "Sat","Sun" -> "Weekend";
+            default -> {
+                if(day.isEmpty())
+                   yield "No day given";
+                else 
+                   yield "Default - Please check input";
+                
+            }
+        };
+        System.out.println(result);
+    }
+}
