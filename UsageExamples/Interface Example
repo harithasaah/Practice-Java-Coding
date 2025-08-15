@@ -1,0 +1,37 @@
+/******************************************************************************
+
+Interface Example - With Static and Default method
+
+*******************************************************************************/
+import java.util.*;
+
+interface interfaceA{
+    public String methodA();
+    public static void methodB(String name){
+        System.out.println(name);
+    }
+    public default void methodC(int a,int b){
+        System.out.println(a+b);
+    }
+}
+
+public class Main implements interfaceA
+{
+    public String methodA(){
+        return "Interface MethodA Implementation";
+    }
+    public void defaultMethodCall(){
+        interfaceA.super.methodC(2,3);
+    }
+	  public static void main(String[] args) {
+	    interfaceA obj = new Main();
+	    System.out.println(obj.methodA());
+	    //call default method - normally
+	    obj.methodC(2,3);
+	    //call default method - define a method within class, inside it interfacename.super().methodname 
+	    Main objMain = new Main();
+	    objMain.defaultMethodCall();
+	    //static method - no Object (interfacename.methodname)
+	    interfaceA.methodB("Hari");
+	}
+}
