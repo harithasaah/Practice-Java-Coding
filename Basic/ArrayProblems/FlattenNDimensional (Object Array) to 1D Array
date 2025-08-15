@@ -1,0 +1,26 @@
+/******************************************************************************
+
+Flatten N Dimensional (Object Array) to 1D Array
+
+*******************************************************************************/
+import java.util.*;
+public class Main 
+{
+    public static void flattenNDimensional(Object[] input, List<Object> flattenList){
+        for(Object i:input){
+            if(i instanceof Object[]){
+                flattenNDimensional((Object[]) i,flattenList);
+            }
+            else{
+                flattenList.add(i);
+            }
+        }
+    }
+	public static void main(String[] args) {
+		Object[] input = {1, new Object[] {2,3}, new Object[] {4, new Object[]{5,6}},7};
+		//List Of Objects
+		List<Object> flattenList = new ArrayList<>();
+		flattenNDimensional(input,flattenList);
+		System.out.println(Arrays.toString(flattenList.toArray()));
+	}
+}
