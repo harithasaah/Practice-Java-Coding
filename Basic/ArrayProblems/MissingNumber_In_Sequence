@@ -1,0 +1,40 @@
+/******************************************************************************
+
+Find the Missing Number in a Sequence (1 to N)
+
+Input: {1,3,4,5,6}
+Output: 2
+
+Sol :: Sum (1 to N) - Sum(arr) = Output 
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static void MissingNumber_WithoutBuildIn(int[] arr){
+        int total=0,sum=0;
+        for(int i=1;i<=arr.length+1;i++){
+            total+=i;
+        }
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+        }
+        System.out.println(total-sum);
+    }
+    public static void MissingNumber_WithBuildIn(int[] arr){
+        int n = arr.length+1;
+        int total = n * (n+1)/2; //Sum of 1 to N = n*(n+1)/2
+        int sum = Arrays.stream(arr).sum();
+        System.out.println(total-sum);
+    }
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		for(int i=0;i<n;i++){
+		    arr[i] = sc.nextInt();
+		}
+		MissingNumber_WithoutBuildIn(arr);
+		MissingNumber_WithBuildIn(arr);
+	}
+}
