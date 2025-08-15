@@ -1,0 +1,27 @@
+/******************************************************************************
+
+Method Overriding
+
+*******************************************************************************/
+
+class classA
+{
+    public void methodA(String name){
+        System.out.println("classA : "+name);
+    }
+}
+
+class classB extends classA
+{
+    @Override
+    public void methodA(String name){
+        System.out.println("ClassB : "+name);
+    }
+  	public static void main(String[] args) {
+	    classA objA = new classA(); //parent reference & object
+		  classA objB = new classB(); //parent reference & child object
+		  objA.methodA("Hari");
+		  objB.methodA("Hari");
+	  }
+}
+
