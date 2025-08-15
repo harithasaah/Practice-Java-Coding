@@ -1,0 +1,20 @@
+/******************************************************************************
+
+Method Overloading
+
+*******************************************************************************/
+
+public class Main
+{
+    public void methodA(String name,int n){
+        System.out.println(name+":"+n);
+    }
+    public void methodA(String name){
+        System.out.println(name);
+    }
+	  public static void main(String[] args) {
+	    Main obj = new Main();
+		  obj.methodA("Haritha");
+		  obj.methodA("Haritha",10);
+	  }
+}
