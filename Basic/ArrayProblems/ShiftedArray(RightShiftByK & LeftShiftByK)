@@ -1,0 +1,66 @@
+/******************************************************************************
+
+Shifted Array 
+
+Left Shift by k
+Original: [1, 2, 3, 4, 5]
+Shifted:  [3, 4, 5, 1, 2]
+Sol: k=k%n
+     reverse first k elements 
+     reverse first n-k elements
+     reverse the whole array
+
+Right Shift by k
+Original:  [1, 2, 3, 4, 5]
+Shifted:   [4, 5, 1, 2, 3]  
+Sol: k=k%n
+     reverse the whole array
+     reverse first k elements 
+     reverse first n-k elements
+     
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static void leftshiftByK(int[] arr1,int k){
+        int n = arr1.length;
+        k = k%n; 
+        reverse(arr1,0,k-1);
+        reverse(arr1,k,n-1);
+        reverse(arr1,0,n-1);
+        System.out.println(Arrays.toString(arr1));
+    }
+    
+    public static void rightshiftByK(int[] arr2,int k){
+        int n = arr2.length;
+        k=k%n;
+        reverse(arr2,0,n-1);
+        reverse(arr2,0,k-1);
+        reverse(arr2,k,n-1);
+        System.out.println(Arrays.toString(arr2));
+    }
+    
+    public static void reverse(int[] arr,int start,int end){
+        while(start<end){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		for(int i=0;i<n;i++){
+		    arr[i] = sc.nextInt();
+		}
+		int k = sc.nextInt();
+		int[] arr1= arr.clone();
+		leftshiftByK(arr1,k);
+		int[] arr2 = arr.clone();
+		rightshiftByK(arr2,k);
+	}
+}
