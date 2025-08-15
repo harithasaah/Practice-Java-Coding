@@ -1,0 +1,16 @@
+/******************************************************************************
+
+Date in Specific Format
+
+*******************************************************************************/
+import java.util.*;
+import java.time.*;
+import java.time.format.*;
+public class Main 
+{
+    public static void main(String[] args){
+        LocalDate now = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        System.out.println(now.format(formatter));
+    }
+}
