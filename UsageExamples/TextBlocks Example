@@ -1,0 +1,18 @@
+/******************************************************************************
+
+TextBlocks Example
+
+*******************************************************************************/
+import java.util.*;
+public class Main 
+{
+    public static void main(String[] args){
+        String textbox = """
+            {
+                "name" : "haritha",
+                "age"  : 24
+            }
+        """;
+        System.out.println(textbox);
+    }
+}
