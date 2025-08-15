@@ -1,0 +1,28 @@
+/******************************************************************************
+
+Sort HashMap By Value :: Ascending & Descending
+
+*******************************************************************************/
+import java.util.*;
+public class Main 
+{
+    public static void main(String[] args){
+        Map<String,Integer> map = new LinkedHashMap<>();
+        map.put("apple",10);
+        map.put("banana",8);
+        map.put("orange",9);
+        
+        //Convert to List & sort (compareTo)
+        List<Map.Entry<String,Integer>> list = new LinkedList<>(map.entrySet());
+        list.sort((x,y)->x.getValue().compareTo(y.getValue()));
+        //list.sort((x,y)->y.getValue().compareTo(x.getValue())); ---Descending
+        
+        //new map
+        Map<String,Integer> sortedMap = new LinkedHashMap<>();
+        for(Map.Entry<String,Integer> entry:list){
+            sortedMap.put(entry.getKey(),entry.getValue());
+        }
+        System.out.println(sortedMap);
+        
+    }
+}
