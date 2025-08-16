@@ -1,0 +1,69 @@
+/******************************************************************************
+
+Wait Notify Code :: Producer Consumer Problem
+
+1. Shared Buffer (Queue/list)
+                 2 methods - produce - wait if buffer is full 
+                             consume - wait if buffer is empty
+2. Main class - obj of SharedBuffer
+                Producer Thread 
+                Consumer Thread
+                Producer Thread Start 
+                Consumer Thread Start
+
+*******************************************************************************/
+import java.util.*;
+class SharedBuffer{
+    private final Queue<Integer> queue = new LinkedList<>();
+    private final int capacity = 5;
+    public synchronized void produce(int value) throws InterruptedException{
+        while(queue.size() == capacity ){
+            wait();
+        }
+        queue.offer(value);
+        System.out.println("Produced : "+value);
+        notifyAll(); // wakes up consumer 
+    }
+    public synchronized int consume() throws InterruptedException{
+        while(queue.isEmpty()){
+            wait();
+        }
+        int value = queue.poll();
+        System.out.println("Consumed : "+value);
+        notifyAll(); //wakes up producer 
+        return value;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		SharedBuffer buffer = new SharedBuffer();
+		Thread producer = new Thread(()->{
+		    for(int i=1;i<=10;i++){
+		        try{
+		            buffer.produce(i);
+		            Thread.sleep(500);
+		        }
+		        catch(InterruptedException e){
+		            Thread.currentThread().interrupt();
+		        }
+		    }
+		});
+		
+		Thread consumer = new Thread(()->{
+		    for(int i=1;i<=10;i++){
+		        try{
+		            buffer.consume();
+		            Thread.sleep(500);
+		        }
+		        catch(InterruptedException e){
+		            Thread.currentThread().interrupt();
+		        }
+		    }
+		});
+		
+		producer.start();
+		consumer.start();
+		
+	}
+}
