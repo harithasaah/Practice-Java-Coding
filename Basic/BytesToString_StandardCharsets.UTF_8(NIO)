@@ -1,0 +1,17 @@
+/******************************************************************************
+
+BytesToString_StandardCharsets.UTF_8(NIO)
+
+*******************************************************************************/
+import java.nio.charset.StandardCharsets;
+public class Main
+{
+    public static String BytesToString(byte[] arr){
+        String str = new String(arr,StandardCharsets.UTF_8);
+        return str;
+    }
+	public static void main(String[] args) {
+		byte[] arr = {72,101,108,108,111};
+		System.out.println(BytesToString(arr));
+	}
+}
