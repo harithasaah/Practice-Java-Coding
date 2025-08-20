@@ -1,0 +1,31 @@
+/******************************************************************************
+
+Get Second Non duplicate Character in a String 
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static void secondLargest(String str){
+        int count = 0;
+        HashMap<Character,Integer> map = new LinkedHashMap<>();
+        for(char i:str.toCharArray()){
+            map.put(i,map.getOrDefault(i,0)+1);
+        }
+        for(Map.Entry<Character,Integer> entry:map.entrySet()){
+            if(entry.getValue() == 1){
+                System.out.println(entry.getKey());
+                count++;
+                if(count == 2){
+                    System.out.println("Second Non Duplicate : "+entry.getKey());
+                    return;
+                }
+            }
+        }
+    }
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		secondLargest(str);
+	}
+}
