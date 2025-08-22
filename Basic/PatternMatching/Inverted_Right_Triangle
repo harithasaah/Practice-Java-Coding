@@ -2,6 +2,13 @@
 
 Simple Right Triangle - Inverted Pattern
 
+Input :: 5
+*****
+****
+***
+**
+*
+
 *******************************************************************************/
 import java.util.*;
 public class Main
