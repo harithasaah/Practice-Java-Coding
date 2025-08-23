@@ -1,0 +1,46 @@
+/******************************************************************************
+
+Full Pyramid - Number Increment 
+
+Input :: 9
+12345678912345678
+        1           1 
+       1 2          2
+      1 2 3         3
+     1 2 3 4        4
+    1 2 3 4 5       5
+   1 2 3 4 5 6      6
+  1 2 3 4 5 6 7     7  
+ 1 2 3 4 5 6 7 8    8 
+1 2 3 4 5 6 7 8 9   9
+
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+        for(int i=1;i<=n;i++){
+            int c = 1;
+            for(int j=1;j<=n-i;j++){
+                System.out.print(" ");
+            }
+            for(int j=n-i+1;j<=n+i-1;j++){
+                if(i%2==0 && j%2==0){
+                    System.out.print(c);
+                    c++;
+                }
+                else if(i%2!=0 && j%2!=0){
+                    System.out.print(c);
+                    c++;
+                }
+                else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+	}
+}
