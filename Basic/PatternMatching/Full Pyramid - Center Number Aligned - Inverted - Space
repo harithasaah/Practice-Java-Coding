@@ -1,0 +1,43 @@
+/******************************************************************************
+
+Full Pyramid - Center Number Aligned - Inverted - Space
+
+Input :: 9
+
+12345678912345678 
+9 9 9 9 9 9 9 9 9   1 
+ 8 8 8 8 8 8 8 8    2 
+  7 7 7 7 7 7 7     3 
+   6 6 6 6 6 6      4 
+    5 5 5 5 5       5 
+     4 4 4 4        6 
+      3 3 3         7 
+       2 2          8 
+        1           9
+
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int c=n;
+		for(int i=1;i<=n;i++){
+		    for(int j=1;j<i;j++){
+		        System.out.print(" ");
+		    }
+		    for(int j=i;j<=2*n-i;j++){
+		        if(i%2==0 && j%2==0){
+		            System.out.print(c+" ");
+		        }
+		        if(i%2!=0 && j%2!=0){
+		            System.out.print(c+" ");
+		        }
+		    }
+		    System.out.println();
+		    c--;
+		}
+	}
+}
