@@ -1,0 +1,41 @@
+/******************************************************************************
+
+Merge two ArrayList
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static void MergeArrayList_WithoutBuildIn(List<String> list1, List<String> list2){
+        List<String> list3 = new ArrayList<>();
+        for(String i:list1){
+            list3.add(i);
+        }
+        for(int i=0;i<list2.size();i++){
+            list3.add(list2.get(i));
+        }
+        System.out.println(list3);
+    }
+    public static void MergeArrayList_WithBuildIn(List<String> list1,List<String> list2){
+        List<String> list3 = new ArrayList<>(list1);
+        list3.addAll(list2);
+        System.out.println(list3);
+    }
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n1 = sc.nextInt();
+		sc.nextLine(); //consume leftover newline
+		List<String> list1 = new ArrayList<>();
+		for(int i=0;i<n1;i++){
+		    list1.add(sc.nextLine());
+		}
+		int n2 = sc.nextInt();
+        sc.nextLine(); //consume leftover nextLine
+		List<String> list2 = new ArrayList<>();
+		for(int i=0;i<n2;i++){
+		    list2.add(sc.nextLine());
+		}
+		MergeArrayList_WithBuildIn(list1,list2);
+		MergeArrayList_WithoutBuildIn(list1,list2);
+	}
+}
