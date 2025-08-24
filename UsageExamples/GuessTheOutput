@@ -1,0 +1,209 @@
+public class Test
+{
+    //print - overloaded 
+    //[polymorphism:: run-time polymorphism (method overriding) & compile-time polymorphism (method overloading))
+    public void print(Integer i){
+        System.out.println("Integer");
+    }
+    
+    public void print(int i){
+        System.out.println("int");
+    }
+    
+    public void print(long i){
+        System.out.println("long");
+    }
+    
+	public static void main(String[] args) {
+	     Test test = new Test();
+	     test.print(10); //JVM matches in this order :: int, long, Integer, int ... (var agrs)
+    }
+}
+
+########################################
+int 
+########################################
+
+public class Test
+{
+    //print - overloaded 
+    //[polymorphism:: run-time polymorphism (method overriding) & compile-time polymorphism (method overloading))
+    public void print(Integer i){
+        System.out.println("Integer");
+    }
+    
+    public void print(long i){
+        System.out.println("long");
+    }
+    
+	public static void main(String[] args) {
+	     Test test = new Test();
+	     test.print(10); //JVM matches in this order :: int, long, Integer, int ... (var agrs), short
+    }
+}
+
+##########################################
+long 
+##########################################
+
+class Base{
+    //Constructor
+    public Base(){
+        System.out.println("Base");
+    }
+}
+class Derived extends Base{
+    //Constructor
+    public Derived(){
+        //compiler default/internally provides :: super();
+        //This calls the parent/base class 
+        System.out.println("Derived");
+    }
+}
+class DeriDerived extends Derived{
+    //Constructor
+    public DeriDerived(){
+        //compiler default/internally provides :: super();
+        //This calls the parent/base class 
+        System.out.println("DeriDerived");
+    }
+}
+public class Test
+{
+	public static void main(String[] args) {
+	     DeriDerived b = new DeriDerived();
+    }
+}
+
+#########################################
+Base 
+Derived
+DeriDerived
+#########################################
+
+Guess the access modifier?
+
+//Shape.java
+public class Shape{
+    protected void display(){
+	   System.out.println("Display-Shape");
+	}
+}
+
+//Circle.java 
+public class Circle{
+    <access-modifier> void display(){               //access-modifier less restrictive (public), or same access-modifier of the parent class (protected) but not private
+	   System.out.println("Display-Circle");
+	}
+}
+
+########################################
+public (or) protected
+########################################
+
+public class BaseClass
+{
+    private void foo(){
+        System.out.println("In BaseClass.foo()");
+    }
+    void bar()
+    {
+         System.out.println("In BaseClass.bar()");
+    }
+    void bar1()
+    {
+         System.out.println("In BaseClass.bar1()");
+    }
+	public static void main(String[] args) {
+	     BaseClass po = new DerivedClass(); //object of child class
+	     po.foo(); // checks in child class, but in parent class the method is private , so it considers the parent class 
+	     po.bar(); // checks in child class and prints the same 
+	     po.bar1();// checks in child class not found, so checks in parent class & prints 
+    }
+}
+
+class DerivedClass extends BaseClass
+{
+    //Polymorphism (run-time Polymorphism :: method overriding)
+    void foo(){
+        System.out.println("In DerivedClass.foo()");
+    }
+    void bar()
+    {
+         System.out.println("In DerivedClass.bar()");
+    }
+}
+
+####################################
+In BaseClass.foo()
+In DerivedClass.bar()
+In BaseClass.bar1()
+#####################################
+
+class myThread extends Thread{
+    @Override
+    public void run(){
+        System.out.println("In run method: Thread name is "+Thread.currentThread().getName());
+    }
+}
+
+public class ThreadTest{
+    public static void main(String args[]){
+        Thread myThread = new myThread();
+        myThread.run(); //normally, we use start() -> invokes run() & has separate path , since we used run() directly, behaves as normal method invoke
+        System.out.println("In main method: Thread name is "+Thread.currentThread().getName());
+    }
+}
+
+#####################################
+In run method: Thread name is main
+In main method: Thread name is main
+#####################################
+class myThread extends Thread{
+    @Override
+    public void run(){
+        System.out.println("In run method: Thread name is "+Thread.currentThread().getName());
+    }
+}
+
+public class ThreadTest{
+    public static void main(String args[]){
+        Thread myThread = new myThread();
+        myThread.start(); //we use start() -> invokes run() & has separate path 
+        System.out.println("In main method: Thread name is "+Thread.currentThread().getName()); //prints this first and then will go to run method 
+    }
+}
+
+########################################
+In main method: Thread name is main
+In run method: Thread name is Thread-0
+########################################
+
+class Base{
+    public void Test(){
+        
+    }
+}
+
+class Base1 extends Base{
+    public void Test(){
+        System.out.println("Base1");
+    }
+}
+
+class Base2 extends Base1{
+    public void Test(){
+        System.out.println("Base2");
+    }
+}
+
+public class Test{
+    public static void main(String args[]){
+        Base obj = new Base1();
+        ((Base2) obj).Test(); //DOWNCASTING :: run time Exception (ClassCastException) 
+    }
+}
+
+###########################################
+Run time Exception :: ClassCastException 
+###########################################
