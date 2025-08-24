@@ -1,16 +1,29 @@
 /******************************************************************************
 
-Date in Specific Format
+Print Date in Specific Date Format 
+
+string pattern0 = "MM-dd-yyyy";         // 08-24-2025
+String pattern1 = "dd/MM/yyyy";         // 16/08/2025
+String pattern2 = "yyyy-MM-dd HH:mm";   // 2025-08-16 10:25
+String pattern3 = "EEEE, MMMM dd yyyy"; // Saturday, August 16 2025
 
 *******************************************************************************/
 import java.util.*;
-import java.time.*;
-import java.time.format.*;
-public class Main 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+public class Main
 {
-    public static void main(String[] args){
-        LocalDate now = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        System.out.println(now.format(formatter));
-    }
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String pattern = sc.nextLine();
+		//SimpleDateFormat :: import java.text.SimpleDateFormat;
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		String date1 = simpleDateFormat.format(new Date());
+		System.out.println(date1);
+		//DateTimeFormatter :: import java.time.LocalDateTime; import java.time.format.DateTimeFormatter;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+		String date2 = LocalDateTime.now().format(formatter);
+		System.out.println(date2);
+	}
 }
