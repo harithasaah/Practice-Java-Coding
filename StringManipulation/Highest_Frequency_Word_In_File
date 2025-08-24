@@ -5,6 +5,7 @@ Highest Frequency Word in a File
 *******************************************************************************/
 
 import java.util.*;
+import java.io.*;
 public class Main{
     public static void main(String[] args){
         String filename = "sample.txt";
