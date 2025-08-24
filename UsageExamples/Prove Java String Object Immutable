@@ -1,0 +1,19 @@
+/******************************************************************************
+
+Prove Java String Object Immutable
+
+*******************************************************************************/
+
+public class Main
+{
+	public static void main(String[] args) {
+		String s1 = "Java";
+		String s2 = s1;
+		System.out.println("String s1 : "+s1);
+		System.out.println("String s2 : "+s2);
+		System.out.println("Is Both s1 & s2 referencing same string : "+ (s2 == s1));
+		s1 = "Python";
+		System.out.println("String s1 : "+s1);
+		System.out.println("Is Both s1 & s2 referencing same string : "+ (s2 == s1)); //here s2 still refering to "Java"
+	}
+}
