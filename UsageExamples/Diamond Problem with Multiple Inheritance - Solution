@@ -1,0 +1,33 @@
+/******************************************************************************
+
+Diamond Problem with Multiple Inheritance - Solution
+
+*******************************************************************************/
+interface I{
+    void method();
+}
+class A implements I{
+    public void method(){
+        System.out.println("Class A Method");
+    }
+}
+class B implements I{
+    public void method(){
+        System.out.println("Class B Method");
+    }
+}
+class C extends A {
+    B b = new B();
+    public void methodC(){
+        super.method();
+        b.method();
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		C c = new C();
+		c.methodC();
+	}
+}
