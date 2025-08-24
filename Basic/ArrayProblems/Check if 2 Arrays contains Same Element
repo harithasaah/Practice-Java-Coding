@@ -1,0 +1,98 @@
+/******************************************************************************
+
+Check if 2 Arrays contains Same Element 
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    //With Build In 
+    public static boolean checkSameElementsWithBuildIn(int[] arr1,int[] arr2){
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> set2 = new HashSet<>();
+        for(int i:arr1){
+            set1.add(i);
+        }
+        for(int i:arr2){
+            set2.add(i);
+        }
+        if(set1.size()!=set2.size()){
+            return false;
+        }
+        return set1.equals(set2);
+    }
+    
+    //Without Build In 
+    public static boolean checkSameElementsWithoutBuildIn(int[] arr1,int[] arr2){
+        
+        int[] newarr1 = uniqueElements(arr1);
+        int[] newarr2 = uniqueElements(arr2);
+        System.out.println(Arrays.toString(newarr1));
+        System.out.println(Arrays.toString(newarr2));
+        if(newarr1.length != newarr2.length){
+            return false;
+        }
+        
+        bubbleSort(newarr1);
+        bubbleSort(newarr2);
+        System.out.println(Arrays.toString(newarr1));
+        System.out.println(Arrays.toString(newarr2));
+        return Arrays.equals(newarr1,newarr2);
+    }
+    public static int[] uniqueElements(int[] arr1){
+        int[] arr3 = new int[arr1.length];
+        boolean isduplicate;
+        int index = 0;
+        for(int i=0;i<arr1.length;i++){
+            isduplicate=false;
+            for(int j=0;j<index;j++){
+                if(arr3[j]==arr1[i]){
+                    isduplicate = true;
+                }
+            }
+            if(!isduplicate){
+                arr3[index]=arr1[i];
+                index++;
+            }
+        }
+        int[] newarr = new int[index];
+        for(int i=0;i<index;i++){
+            newarr[i] = arr3[i];
+        }
+        return newarr;
+    }
+    
+    public static int[] bubbleSort(int[] arr){
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=i;j<arr.length;j++){
+                if(arr[i]>arr[j]){
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n1 = sc.nextInt();
+		int[] arr1 = new int[n1];
+		for(int i=0;i<n1;i++){
+		    arr1[i] = sc.nextInt();
+		}
+		int n2 = sc.nextInt();
+		int[] arr2 = new int[n2];
+		for(int i=0;i<n2;i++){
+		    arr2[i] = sc.nextInt();
+		}
+		if(checkSameElementsWithBuildIn(arr1,arr2) && checkSameElementsWithoutBuildIn(arr1,arr2)){
+		    System.out.println("Yes, Contains Same Elements");
+		}
+		else{
+		    System.out.println("No, Contains different Elements");
+		}
+		
+	}
+}
