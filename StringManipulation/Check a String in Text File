@@ -1,0 +1,38 @@
+/******************************************************************************
+
+Find a String in Text File 
+
+*******************************************************************************/
+import java.util.*;
+import java.io.*;
+public class Main
+{
+    public static boolean stringInTextFile(String filename, String str) throws IOException{
+        try(BufferedReader br = new BufferedReader(new FileReader(filename))){
+            String line;
+            while((line = br.readLine())!=null){
+                if(line.contains(str)){
+                    return true;
+                }
+            }
+        }
+        return false;
+        
+    }
+    public static void main(String[] args){
+        String filename = "sample.txt";
+        String str = "haritha";
+        try{
+            if(stringInTextFile(filename,str))
+            {
+                System.out.println("Yes, String found in the file");
+            }
+            else{
+                System.out.println("No, String not found");
+            }
+        }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+}
