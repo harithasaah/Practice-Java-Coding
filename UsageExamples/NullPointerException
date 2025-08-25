@@ -1,0 +1,23 @@
+/******************************************************************************
+
+NullPointerException
+
+*******************************************************************************/
+
+public class Main
+{
+    public static String convertToUpperCase(String str){
+        
+        //Handle NullPointerException
+        /************************************
+        if(str == null){
+            return "Input is Null";
+        }
+        ************************************/
+        return str.toUpperCase();
+    }
+	public static void main(String[] args) {
+		String str = null;
+		System.out.println(convertToUpperCase(str));
+	}
+}
