@@ -1,0 +1,29 @@
+/******************************************************************************
+
+ForEach & Iterator
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static void forEachFunction(List<String> list){
+        list.forEach(System.out::println);
+    }
+    public static void iteratorFunction(List<String> list){
+        Iterator it = list.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+    }
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		sc.nextLine();
+		List<String> list = new ArrayList<>();
+		for(int i=0;i<n;i++){
+		    list.add(sc.nextLine());
+		}
+		forEachFunction(list);
+		iteratorFunction(list);
+	}
+}
