@@ -217,6 +217,11 @@ public static void main(String args[]) {
  }
 }
 
-#####################################
+#############################################################
+To compile
 $ javac Main.java
-#####################################
+To run
+$ java Main
+To compile and run java file inside a pacakage
+$ java com/example/Main.java
+#############################################################
