@@ -1,0 +1,29 @@
+/******************************************************************************
+
+Interface 
+
+*******************************************************************************/
+
+interface I{
+    void methodA();
+    default void methodB(){
+        System.out.println("Default Method :: Interface A - MethodB");
+    }
+    static void methodC(){
+        System.out.println("Static Method :: Interface A - MethodC");
+    }
+}
+class A implements I{
+    public void methodA(){
+        System.out.println("Class A implements MethodA (Interface)");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		I i = new A();
+		i.methodA(); 
+		i.methodB(); //default method 
+		I.methodC(); //static method (InterfaceName.methodname)
+	}
+}
