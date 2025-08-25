@@ -3,18 +3,26 @@
 NullPointerException
 
 *******************************************************************************/
-
+import java.util.*;
 public class Main
 {
     public static String convertToUpperCase(String str){
+        
+        //Not Handling NullPointerException
+        //return str.toUpperCase()
         
         //Handle NullPointerException
         /************************************
         if(str == null){
             return "Input is Null";
         }
+        
+        //return str.toUpperCase();
         ************************************/
-        return str.toUpperCase();
+        
+        return Optional.ofNullable(str)
+               .map(String::toUpperCase)
+               .orElse("Input is Null");
     }
 	public static void main(String[] args) {
 		String str = null;
