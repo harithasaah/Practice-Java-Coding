@@ -1,0 +1,21 @@
+/******************************************************************************
+
+Enum Values
+
+*******************************************************************************/
+
+public class Main
+{
+    enum Day{
+        MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+    }
+	public static void main(String[] args) {
+	    //Assign enum Value 
+		Day today = Day.MONDAY;
+		System.out.println(today);
+		//Loop through all enum values 
+		for(Day day : Day.values()){
+		    System.out.print(day+" ");
+		}
+	}
+}
