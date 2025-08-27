@@ -225,3 +225,200 @@ $ java Main
 To compile and run java file inside a pacakage
 $ java com/example/Main.java
 #############################################################
+
+public class Main
+{
+	public static void main(String[] args) {
+		String s1 = "abc";
+        String s2 = "abc";
+        System.out.println("s1 == s2 is: " + s1 == s2);
+	}
+}
+
+###############################################################
+Output :: s1 == s2 is: false
+Explanation :: No brackets enclosing s1 == s2
+###############################################################
+
+public class Main
+{
+	public static void main(String[] args) {
+		String s1 = "abc";
+        String s2 = "abc";
+        System.out.println("s1 == s2 is: " + (s1 == s2));
+	}
+}
+
+###############################################################
+Output :: s1 == s2 is: true
+Explanation :: Brackets enclosing s1 == s2
+###############################################################
+
+public class Main
+{
+	public static void main(String[] args) {
+		String s3 = "JournalDev";
+        int start = 1;
+        char end = 5; //char not an issue
+        System.out.println(s3.substring(start, end));
+	}
+}
+
+#################################################################
+Output :: ourn
+#################################################################
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		HashSet shortSet = new HashSet();
+		//datatype - mentioned as "short"
+        for (short i = 0; i < 100; i++) {
+            shortSet.add(i);
+            shortSet.remove(i - 1); //here it considers as "int", wrapped as "Integer", so removes nothing
+        }
+        System.out.println(shortSet.size());
+	}
+}
+
+###############################################################
+Output :: 100
+###############################################################
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		HashSet shortSet = new HashSet();
+		//datatype - mentioned as "short"
+        for (short i = 0; i < 100; i++) {
+            shortSet.add(i);
+            shortSet.remove((short)(i - 1)); //here it considers as "int", wrapped as "Integer", explicity made as (short), so removes elements 
+        }
+        System.out.println(shortSet.size());
+	}
+}
+
+###############################################################
+Output :: 1
+###############################################################
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		try {
+            if (flag) {
+                while (true) {
+                }
+            } 
+            else {
+                System.exit(1);
+            }
+        } 
+        finally {
+            System.out.println("In Finally");
+        }
+	}
+}
+
+###############################################################
+Output :: 
+if flag - true, infine loop 
+                finally not executed
+else, program exit
+      finally not executed
+
+(Note :: Finally not executed in both cases)
+###############################################################
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str = null;
+        String str1="abc";
+        /******************************************************
+         | - bitwise operator , checks both the condition, here str = null, equals() method throws NPE 
+         || - Logical operator, checks the first condition, if true, doesn't check anything
+        ******************************************************/
+        System.out.println(str1.equals("abc") || str.equals(null)); //true 
+        System.out.println(str1.equals("abc") | str.equals(null)); // NPE 
+        
+	}
+}
+
+###############################################################
+true 
+NPE
+###############################################################
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String x = "abc";
+        String y = "abc";
+        x.concat(y); // creates a new string, will not assign to "x" , "x" not changed
+        System.out.print(x); // abc
+	}
+}
+
+################################################################
+abc
+################################################################
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int x = 10 * 10 - 10;
+        System.out.println(x);
+	}
+}
+
+################################################################
+90
+################################################################
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    try {
+            throw new IOException("Hello");
+        } 
+        catch(IOException | Exception e) {
+            System.out.println(e.getMessage());
+        }
+	}
+}
+
+#################################################################
+1. can't find the symbol IOException -> need to use import java.io.*;
+2. IOException | Exception -> subclass, superclass (IOException is caught in the Exception superclass itself) -> Multi-catch is only for unrelated exception
+#################################################################
+
+package com.digitalocean.programming-interviews;
+
+public class String Programs {
+
+ static void main(String[10] args) {
+  String s = "abc"
+  System.out.println(s);
+ }
+}
+
+###################################################################
+5 mistakes 
+1. Package name :: No hyphens(-)
+2. Class name :: No space (StringPrograms)
+3. main method ;: should be public 
+4. main method argument :: No size should be specified
+5. String Initialization :: No semicolon (;)
+###################################################################
+
+
+
+
