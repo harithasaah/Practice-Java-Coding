@@ -1,0 +1,22 @@
+/******************************************************************************
+
+Divide by 0 Exception 
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+		try{
+		    n = n/0;
+		}
+		catch(Exception e){
+		    System.out.println(e);
+		}
+		finally{
+		    System.out.println("Finally block executed");
+		}
+	}
+}
