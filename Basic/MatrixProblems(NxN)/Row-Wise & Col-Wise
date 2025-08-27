@@ -1,0 +1,58 @@
+/******************************************************************************
+
+Display row-wise and col-wise
+
+Input :: 11 12 13 
+         14 15 16
+         17 18 19 
+         
+Row-wise :: Row 0 :: 11 12 13 
+            Row 1 :: 14 15 16 
+            Row 2 :: 17 18 19 
+            
+Col-wise :: Col 0 :: 11 14 17 
+            Col 1 :: 12 15 18 
+            Col 2 :: 13 16 19
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int row = sc.nextInt();
+		int col = sc.nextInt();
+		int[][] mat = new int[row][col];
+		for(int i=0;i<row;i++){
+		    for(int j=0;j<col;j++){
+		        mat[i][j] = sc.nextInt();
+		    }
+		}
+		System.out.println();
+		for(int i=0;i<row;i++){
+		    for(int j=0;j<col;j++){
+		        System.out.print(mat[i][j]+" ");
+		    }
+		    System.out.println();
+		}
+		System.out.println();
+		
+		//Row Wise 
+		for(int i=0;i<row;i++){
+		    System.out.print("Row "+i+" :: ");
+		    for(int j=0;j<col;j++){
+		        System.out.print(mat[i][j]+" ");
+		    }
+		    System.out.println();
+		}
+		System.out.println();
+		//Col Wise 
+		for(int j=0;j<col;j++){
+		    System.out.print("Col "+j+" :: ");
+		    for(int i=0;i<row;i++){
+		        System.out.print(mat[i][j]+" ");
+		    }
+		    System.out.println();
+		}
+	}
+}
